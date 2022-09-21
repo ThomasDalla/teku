@@ -8,6 +8,7 @@ dependencies {
   implementation project(':infrastructure:bls')
   implementation project(':infrastructure:exceptions')
   implementation project(':infrastructure:metrics')
+  implementation project(':infrastructure:quorum')
   implementation project(':data:dataexchange')
   implementation project(':ethereum:dataproviders')
   implementation project(':ethereum:executionclient')
@@ -56,6 +57,8 @@ dependencies {
   implementation 'com.fasterxml.jackson.core:jackson-databind'
   implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
   implementation 'org.xerial.snappy:snappy-java'
+  implementation 'org.apache.curator:curator-framework'
+  implementation 'org.apache.curator:curator-recipes'
 
   integrationTestImplementation 'org.mock-server:mockserver-junit-jupiter'
 

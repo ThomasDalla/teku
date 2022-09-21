@@ -23,6 +23,7 @@ import tech.pegasys.teku.ethereum.execution.types.Eth1Address;
 import tech.pegasys.teku.infrastructure.exceptions.InvalidConfigurationException;
 import tech.pegasys.teku.infrastructure.metrics.MetricsConfig;
 import tech.pegasys.teku.infrastructure.metrics.MetricsConfig.MetricsConfigBuilder;
+import tech.pegasys.teku.infrastructure.quorum.QuorumConfig;
 import tech.pegasys.teku.infrastructure.unsigned.UInt64;
 import tech.pegasys.teku.networking.eth2.P2PConfig;
 import tech.pegasys.teku.networking.nat.NatConfiguration;
@@ -166,6 +167,10 @@ public class TekuConfiguration {
 
   public ValidatorRestApiConfig validatorRestApiConfig() {
     return validatorRestApiConfig;
+  }
+
+  public QuorumConfig quorumConfig() {
+    return null;
   }
 
   public static class Builder {

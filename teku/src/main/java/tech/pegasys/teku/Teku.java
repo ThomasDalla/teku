@@ -13,6 +13,7 @@
 
 package tech.pegasys.teku;
 
+import com.google.common.base.Strings;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.security.Security;
@@ -75,9 +76,15 @@ public final class Teku {
       throw new UnsupportedOperationException("BLS native library unavailable for this platform");
     }
 
-    node.start();
-
-    return node;
+    if (config.quorumConfig() != null
+        && !Strings.isNullOrEmpty(config.quorumConfig().connectionString())) {
+      QuorumNode quorumNode = new QuorumNode(node, config.quorumConfig());
+      quorumNode.start();
+      return quorumNode;
+    } else {
+      node.start();
+      return node;
+    }
   }
 
   static Optional<Node> startFromCLIArgs(String[] cliArgs) throws CLIException {
